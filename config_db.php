@@ -1,10 +1,5 @@
 <?php
 
-// $servername = "localhost";
-// $username = "maintena_ncesk";
-// $password = "!QAZxsw23edc";
-// $dbname = "maintena_prod_bf";
-
 $servername = "localhost"; // ชื่อเซิร์ฟเวอร์ (เช่น localhost)
 $username = "root"; // ชื่อผู้ใช้ฐานข้อมูล
 $password = ""; // รหัสผ่านของผู้ใช้ฐานข้อมูล (ถ้าว่างใส่ "")
