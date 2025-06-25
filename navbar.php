@@ -84,6 +84,17 @@ function getMenuItems($user_department, $user_level)
                 ['title' => 'ประมาณการค่าแรง', 'url' => 'calculate_wages.php'],
             ]
         ];
+
+        $menu[] = [
+            'title' => 'WIP',
+            'submenu' => [
+                ['title' => 'คลัง WIP', 'url' => 'wip_inventory.php'],
+                ['title' => 'รูปแบบการผลิต', 'url' => 'recipe_list.php'], 
+                ['title' => 'ไม้ท่อน', 'url' => 'rm_list.php'],
+                ['title' => 'หัวไม้', 'url' => 'hw_list.php'],
+                ['title' => 'เศษไม้', 'url' => 'sw_list.php'], 
+            ]
+        ];
     }
 
     // สำหรับกลุ่ม MD
@@ -259,7 +270,6 @@ function getMenuItems($user_department, $user_level)
             'submenu' => [
                 ['title' => 'เพิ่มราคาค่าแรง', 'url' => 'product_price.php'],
                 ['title' => 'ออกเอกสารค่าแรง', 'url' => 'production_wages_list.php'],
-                ['title' => 'ประมาณการค่าแรง', 'url' => 'calculate_wages.php'],
             ]
         ];
     }
@@ -359,7 +369,6 @@ function getMenuItems($user_department, $user_level)
                 ['title' => 'สั่งเบิกไม้สำหรับงานผลิต', 'url' => 'planning_order.php'],
                 ['title' => 'ติดตามแผนงานผลิต', 'url' => 'check_all_product_planning.php'],
                 ['title' => 'ติดตามงานเบิกซ่อม', 'url' => 'check_status_issue_repair.php'],
-                ['title' => 'ตรวจรับงานผลิต', 'url' => 'product_complete_list.php'],
                 ['title' => 'สรุปการเบิกไม้', 'url' => 'wood_issue_summary.php']
             ]
         ];
@@ -368,7 +377,6 @@ function getMenuItems($user_department, $user_level)
             'submenu' => [
                 ['title' => 'เพิ่มราคาค่าแรง', 'url' => 'product_price.php'],
                 ['title' => 'ออกเอกสารค่าแรง', 'url' => 'production_wages_list.php'],
-                ['title' => 'ประมาณการค่าแรง', 'url' => 'calculate_wages.php'],
             ]
         ];
     }
@@ -440,9 +448,9 @@ $menuItems = getMenuItems($user_department, $user_level);
     </nav>
 
     <!-- ประกาศแจ้งเตือน -->
-    <!-- <div class="alert alert-danger text-center" role="alert">
-        <strong>ประกาศแจ้งเตือน:</strong> วันที่ 12/06/2025 เวลา 12:10 - 13:00 จะมีการปิดระบบเพื่อ UPDATE
-        ซึ่งจะทำให้ไม่สามารถใช้งานระบบได้ ขออภัยในความไม่สะดวก
+    <!-- <div class="alert alert-warning text-center" role="alert">
+        <strong>ประกาศแจ้งเตือน:</strong> วันที่ 26/03/2025 เวลา 13:30 เป็นต้นไป จะมีการปิดระบบเพื่อ UPDATE
+        ซึ่งจะทำให้ไม่สามารถใช้งานระบบได้จนถึง 17:00 หรือจนกว่าจะมีประกาศเพิ่มเติม
     </div> -->
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
