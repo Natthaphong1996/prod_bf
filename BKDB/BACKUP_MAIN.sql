@@ -1,10 +1,3 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               10.4.32-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win64
--- HeidiSQL Version:             12.8.0.6908
--- --------------------------------------------------------
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
@@ -14,12 +7,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Dumping database structure for prod_bf
-CREATE DATABASE IF NOT EXISTS `prod_bf` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `prod_bf`;
-
--- Dumping structure for table prod_bf.bom
 CREATE TABLE IF NOT EXISTS `bom` (
   `bom_id` int(11) NOT NULL AUTO_INCREMENT,
   `prod_id` char(50) NOT NULL,
@@ -29,22 +16,16 @@ CREATE TABLE IF NOT EXISTS `bom` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`bom_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1157 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1058 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.customer
 CREATE TABLE IF NOT EXISTS `customer` (
   `customer_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_code` varchar(50) DEFAULT NULL,
   `customer_name` varchar(255) DEFAULT NULL,
   `customer_short_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=596 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=591 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.forecast
 CREATE TABLE IF NOT EXISTS `forecast` (
   `forecast_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_code` varchar(50) NOT NULL,
@@ -54,9 +35,17 @@ CREATE TABLE IF NOT EXISTS `forecast` (
   PRIMARY KEY (`forecast_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2888 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
+CREATE TABLE IF NOT EXISTS `hw_wood_list` (
+  `hw_id` int(11) NOT NULL AUTO_INCREMENT,
+  `hw_code` varchar(50) NOT NULL,
+  `hw_type` varchar(50) NOT NULL DEFAULT '',
+  `hw_thickness` int(11) NOT NULL,
+  `hw_width` int(11) NOT NULL,
+  `hw_length` int(11) NOT NULL,
+  `hw_m3` double(15,6) NOT NULL DEFAULT 0.000000,
+  PRIMARY KEY (`hw_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping structure for table prod_bf.jobs_complete
 CREATE TABLE IF NOT EXISTS `jobs_complete` (
   `jobs_complete_id` int(11) NOT NULL AUTO_INCREMENT,
   `job_id` char(50) DEFAULT NULL,
@@ -68,13 +57,10 @@ CREATE TABLE IF NOT EXISTS `jobs_complete` (
   `assembly_point` char(50) DEFAULT NULL,
   `reason` char(200) DEFAULT NULL,
   `date_complete` datetime DEFAULT current_timestamp(),
-  `date_receive` datetime DEFAULT NULL,
+  `date_receive` datetime DEFAULT '2025-05-28 15:00:00',
   PRIMARY KEY (`jobs_complete_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2817 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2127 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.nail
 CREATE TABLE IF NOT EXISTS `nail` (
   `nail_id` int(11) NOT NULL AUTO_INCREMENT,
   `nail_code` varchar(50) NOT NULL,
@@ -83,9 +69,6 @@ CREATE TABLE IF NOT EXISTS `nail` (
   PRIMARY KEY (`nail_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.nail_usage_log
 CREATE TABLE IF NOT EXISTS `nail_usage_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `job_id` varchar(50) NOT NULL,
@@ -94,9 +77,6 @@ CREATE TABLE IF NOT EXISTS `nail_usage_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.part_list
 CREATE TABLE IF NOT EXISTS `part_list` (
   `part_id` int(11) NOT NULL AUTO_INCREMENT,
   `part_code` varchar(50) DEFAULT NULL,
@@ -106,21 +86,15 @@ CREATE TABLE IF NOT EXISTS `part_list` (
   `part_length` int(11) DEFAULT NULL,
   `part_m3` decimal(10,6) DEFAULT NULL,
   PRIMARY KEY (`part_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9179 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8927 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.part_type
 CREATE TABLE IF NOT EXISTS `part_type` (
   `type_id` int(11) NOT NULL AUTO_INCREMENT,
   `type_code` varchar(50) NOT NULL,
   `type_name` varchar(100) NOT NULL,
   PRIMARY KEY (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.production_wages
 CREATE TABLE IF NOT EXISTS `production_wages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `production_wage_id` text DEFAULT NULL,
@@ -130,22 +104,16 @@ CREATE TABLE IF NOT EXISTS `production_wages` (
   `status` enum('รอยืนยัน','อนุมัติแล้ว','ยกเลิก') DEFAULT 'รอยืนยัน',
   `date_create` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.product_price
 CREATE TABLE IF NOT EXISTS `product_price` (
   `price_id` int(11) NOT NULL AUTO_INCREMENT,
   `price_value` double DEFAULT NULL,
   `prod_id` varchar(50) DEFAULT NULL,
   `date_update` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`price_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=363 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=288 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.product_price_history
 CREATE TABLE IF NOT EXISTS `product_price_history` (
   `price_log_id` int(11) NOT NULL AUTO_INCREMENT,
   `price_id` text DEFAULT NULL,
@@ -154,11 +122,8 @@ CREATE TABLE IF NOT EXISTS `product_price_history` (
   `change_date` datetime DEFAULT current_timestamp(),
   `user_id` text DEFAULT NULL,
   PRIMARY KEY (`price_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.prod_list
 CREATE TABLE IF NOT EXISTS `prod_list` (
   `prod_id` int(11) NOT NULL AUTO_INCREMENT,
   `prod_code` varchar(50) DEFAULT NULL,
@@ -171,11 +136,8 @@ CREATE TABLE IF NOT EXISTS `prod_list` (
   `thickness` int(11) DEFAULT NULL,
   `prod_description` text DEFAULT NULL,
   PRIMARY KEY (`prod_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1330 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1232 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.prod_type
 CREATE TABLE IF NOT EXISTS `prod_type` (
   `type_id` int(11) NOT NULL AUTO_INCREMENT,
   `type_code` varchar(50) NOT NULL,
@@ -183,9 +145,6 @@ CREATE TABLE IF NOT EXISTS `prod_type` (
   PRIMARY KEY (`type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.prod_user
 CREATE TABLE IF NOT EXISTS `prod_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
@@ -196,9 +155,37 @@ CREATE TABLE IF NOT EXISTS `prod_user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
+CREATE TABLE IF NOT EXISTS `recipe_list` (
+  `recipe_id` int(11) NOT NULL AUTO_INCREMENT,
+  `rm_id` int(11) NOT NULL,
+  `rm_qty` int(11) NOT NULL,
+  `rm_total_m3` decimal(15,7) NOT NULL COMMENT 'ปริมาตร RAW MATERIAL รวม (m³)',
+  `rm_comment` varchar(200) DEFAULT NULL,
+  `part_id` int(11) NOT NULL,
+  `part_qry` int(11) NOT NULL,
+  `part_cut` int(11) NOT NULL,
+  `part_split` int(11) NOT NULL,
+  `part_total_m3` decimal(15,7) NOT NULL DEFAULT 0.0000000,
+  `part_comment` varchar(200) DEFAULT NULL,
+  `hw_id` int(11) DEFAULT NULL,
+  `hw_qty` int(11) DEFAULT NULL,
+  `hw_cut` int(11) DEFAULT NULL,
+  `hw_split` int(11) DEFAULT NULL,
+  `hw_total_m3` decimal(15,7) DEFAULT 0.0000000 COMMENT 'ปริมาตร HEAVY WOOD รวม (m³)',
+  `hw_comment` varchar(200) DEFAULT NULL,
+  `sw_id` int(11) DEFAULT NULL,
+  `sw_qty` int(11) DEFAULT NULL,
+  `sw_cut` int(11) DEFAULT NULL,
+  `sw_split` int(11) DEFAULT NULL,
+  `sw_total_m3` decimal(15,7) DEFAULT 0.0000000 COMMENT 'ปริมาตร SAW WOOD รวม (m³)',
+  `sw_comment` varchar(200) DEFAULT NULL,
+  `rm_m3` decimal(15,7) NOT NULL DEFAULT 0.0000000 COMMENT 'ปริมาตร RAW MATERIAL ใช้จริง (m³)',
+  `net_m3` decimal(15,7) NOT NULL DEFAULT 0.0000000 COMMENT 'ปริมาตรสุทธิหลังตัด (m³)',
+  `loss_m3` decimal(15,7) NOT NULL DEFAULT 0.0000000 COMMENT 'ปริมาตรสูญเสีย (m³)',
+  `loss_per_m3` decimal(15,7) NOT NULL DEFAULT 0.0000000 COMMENT 'เปอร์เซ็นต์ปริมาตรสูญเสีย (m³)',
+  PRIMARY KEY (`recipe_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping structure for table prod_bf.repair_issue
 CREATE TABLE IF NOT EXISTS `repair_issue` (
   `repair_id` varchar(50) NOT NULL DEFAULT '',
   `job_id` varchar(50) NOT NULL,
@@ -213,9 +200,6 @@ CREATE TABLE IF NOT EXISTS `repair_issue` (
   PRIMARY KEY (`repair_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table prod_bf.return_wood_wip
 CREATE TABLE IF NOT EXISTS `return_wood_wip` (
   `return_id` int(11) NOT NULL AUTO_INCREMENT,
   `job_id` char(50) NOT NULL DEFAULT '',
@@ -225,11 +209,38 @@ CREATE TABLE IF NOT EXISTS `return_wood_wip` (
   `recive_by` char(50) DEFAULT NULL,
   `return_date` datetime DEFAULT NULL,
   PRIMARY KEY (`return_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=794 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=514 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Data exporting was unselected.
+CREATE TABLE IF NOT EXISTS `rm_wood_list` (
+  `rm_id` int(11) NOT NULL AUTO_INCREMENT,
+  `rm_code` varchar(50) NOT NULL,
+  `rm_type` varchar(50) DEFAULT NULL,
+  `rm_thickness` int(11) NOT NULL,
+  `rm_width` int(11) NOT NULL,
+  `rm_length` int(11) NOT NULL,
+  `rm_m3` double(15,6) NOT NULL DEFAULT 0.000000,
+  PRIMARY KEY (`rm_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping structure for table prod_bf.wood_issue
+CREATE TABLE IF NOT EXISTS `sw_wood_list` (
+  `sw_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sw_code` varchar(50) NOT NULL,
+  `sw_type` varchar(50) NOT NULL,
+  `sw_thickness` int(11) NOT NULL,
+  `sw_width` int(11) NOT NULL,
+  `sw_length` int(11) NOT NULL,
+  `sw_m3` double(15,8) NOT NULL DEFAULT 0.00000000,
+  PRIMARY KEY (`sw_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `wip_inventory` (
+  `part_id` char(50) NOT NULL COMMENT 'อ้างอิง part_list.part_id',
+  `quantity` int(11) NOT NULL DEFAULT 0 COMMENT 'จำนวนคงเหลือ',
+  `max` int(11) NOT NULL DEFAULT 0 COMMENT 'จำนวนสูงสุด',
+  `min` int(11) NOT NULL DEFAULT 0 COMMENT 'จำนวนต่ำสุด',
+  PRIMARY KEY (`part_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 CREATE TABLE IF NOT EXISTS `wood_issue` (
   `issue_id` int(11) NOT NULL AUTO_INCREMENT,
   `job_id` varchar(50) NOT NULL,
@@ -250,9 +261,7 @@ CREATE TABLE IF NOT EXISTS `wood_issue` (
   `issue_type` varchar(50) NOT NULL DEFAULT 'ใบเบิกใช้',
   `remark` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`issue_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3488 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Data exporting was unselected.
+) ENGINE=InnoDB AUTO_INCREMENT=2750 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
