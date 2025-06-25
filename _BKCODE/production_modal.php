@@ -25,9 +25,6 @@ $sql_closed = "SELECT DISTINCT
 
 $result_closed = mysqli_query($conn, $sql_closed);
 ?>
-
-
-
 <div class="modal fade" id="createInvoiceModal" tabindex="-1" aria-labelledby="createInvoiceModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
         <!-- ฟอร์มใน Modal ส่งข้อมูลแบบ POST กลับไปยัง production_wages_list.php -->
@@ -68,6 +65,10 @@ $result_closed = mysqli_query($conn, $sql_closed);
                             <option value="Y-PPK">14. Y-PPK</option>
                             <option value="SK-D(PPK)">15. SK-D(PPK)</option>
                             <option value="SK-G(PPK)">16. SK-G(PPK)</option>
+                            <option value="Z-รายวัน">17. Z-รายวัน</option>
+                            <option value="KMCT-SK-C">18. KMCT-SK-C(รายวัน)</option>            
+                            <option value="NON-AP">19. NON-AP(ไม่มีจุดประกอบ)</option>
+                            <option value="CLAIM">20. งานเคลม(ไม่คิดค่าแรง) </option>
                             </select>
                         </div>
                         <div class="col-md-3">
