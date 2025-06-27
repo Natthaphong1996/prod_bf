@@ -190,7 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <select id="issued_by" class="form-select" aria-label="กรอกชื่อผู้เบิก">
                     <option value="" selected>เลือกชื่อผู้เบิก</option>
                     <option value="สุภาพร">สุภาพร</option>
-                    <option value="สมพร">สมพร</option>
+                    <option value="รุ่งทิวา">รุ่งทิวา</option>
                     <option value="สาม">สาม</option>
                     <option value="เสงี่ยม">เสงี่ยม</option>
                     <option value="กัญญา">กัญญา</option>

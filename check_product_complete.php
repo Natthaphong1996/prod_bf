@@ -228,6 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                 <select name="receive_by" class="form-control" required>
                     <option value="" selected>เลือกผู้ตรวจรับงาน</option>
                     <option value="ธานี">ธานี</option>
+                    <option value="พรพิมล">พรพิมล</option>
                     <option value="นิสุดา">นิสุดา</option>
                     <option value="ใหม่">ใหม่</option>
                     <option value="พันทิพา">พันทิพา</option>
@@ -250,7 +251,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                 <select name="send_by" class="form-control" required>
                     <option value="" selected>เลือกผู้ส่งงาน</option>
                     <option value="สุภาพร">สุภาพร</option>
-                    <option value="สมพร">สมพร</option>
+                    <option value="รุ่งทิวา">รุ่งทิวา</option>
                     <option value="สาม">สาม</option>
                     <option value="เสงี่ยม">เสงี่ยม</option>
                     <option value="กัญญา">กัญญา</option>

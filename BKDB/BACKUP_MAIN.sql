@@ -29,7 +29,11 @@ CREATE TABLE IF NOT EXISTS `bom` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`bom_id`)
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=1157 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=1158 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Data exporting was unselected.
 
@@ -70,7 +74,11 @@ CREATE TABLE IF NOT EXISTS `jobs_complete` (
   `date_complete` datetime DEFAULT current_timestamp(),
   `date_receive` datetime DEFAULT NULL,
   PRIMARY KEY (`jobs_complete_id`)
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=2817 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=2907 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Data exporting was unselected.
 
@@ -106,7 +114,11 @@ CREATE TABLE IF NOT EXISTS `part_list` (
   `part_length` int(11) DEFAULT NULL,
   `part_m3` decimal(10,6) DEFAULT NULL,
   PRIMARY KEY (`part_id`)
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=9179 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=9182 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Data exporting was unselected.
 
@@ -130,7 +142,11 @@ CREATE TABLE IF NOT EXISTS `production_wages` (
   `status` enum('รอยืนยัน','อนุมัติแล้ว','ยกเลิก') DEFAULT 'รอยืนยัน',
   `date_create` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=141 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Data exporting was unselected.
 
@@ -141,7 +157,11 @@ CREATE TABLE IF NOT EXISTS `product_price` (
   `prod_id` varchar(50) DEFAULT NULL,
   `date_update` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`price_id`) USING BTREE
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=363 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=377 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Data exporting was unselected.
 
@@ -171,7 +191,11 @@ CREATE TABLE IF NOT EXISTS `prod_list` (
   `thickness` int(11) DEFAULT NULL,
   `prod_description` text DEFAULT NULL,
   PRIMARY KEY (`prod_id`)
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=1330 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=1331 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Data exporting was unselected.
 
@@ -225,7 +249,11 @@ CREATE TABLE IF NOT EXISTS `return_wood_wip` (
   `recive_by` char(50) DEFAULT NULL,
   `return_date` datetime DEFAULT NULL,
   PRIMARY KEY (`return_id`)
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=794 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=826 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Data exporting was unselected.
 
@@ -250,7 +278,11 @@ CREATE TABLE IF NOT EXISTS `wood_issue` (
   `issue_type` varchar(50) NOT NULL DEFAULT 'ใบเบิกใช้',
   `remark` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`issue_id`)
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=3488 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=3570 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Data exporting was unselected.
 
